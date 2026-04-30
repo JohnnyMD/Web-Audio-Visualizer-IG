@@ -4,8 +4,6 @@
 
 
 
-[TOC]
-
 ## Project requirements:
 
 ### - The Project Manager
@@ -102,9 +100,9 @@ No models or animations were imported in this project.
 Main objects included in the Project:
 
 
-  -   *The Main Sphere* hierarchical object (*one sphere + one cube per sphere face + set of lines (original design approach) + 2 smaller spheres with alpha textures*);
+-   *The Main Sphere* hierarchical object (*one sphere + one cube per sphere face + set of lines (original design approach) + 2 smaller spheres with alpha textures*);
 
-  -   A set of particular *Particle Systems* with different properties that are composing the environment  where *The Main Sphere* is immersed (background); 
+-   A set of particular *Particle Systems* with different properties that are composing the environment  where *The Main Sphere* is immersed (background); 
 
 
 
@@ -139,9 +137,9 @@ Main objects included in the Project:
 
 >   **<u>REQUIREMENTS</u>**: **Most objects should be animated, in particular the hierarchical models should perform animations that exploit their structure. ANIMATIONS CANNOT BE IMPORTED, should be implemented by you in javascript (WebGL, ThreeJS or other approved library)**.
 
- - NO imported animations;
- - The Particle Systems, each centered in the origin of *The Main Sphere*, perform simple smooth rotations;
- - Actions on different components of the hierarchical structure of *The Main Sphere* are performed in synchrony with the *audio dynamics* from the audio data obtained from the [Analyser Node](https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode) of the Web Audio API audio context. The animations of these components are performed from different combinations of such actions (detailed explanation follows below).
+-   NO imported animations;
+-   The Particle Systems, each centered in the origin of *The Main Sphere*, perform simple smooth rotations;
+-   Actions on different components of the hierarchical structure of *The Main Sphere* are performed in synchrony with the *audio dynamics* from the audio data obtained from the [Analyser Node](https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode) of the Web Audio API audio context. The animations of these components are performed from different combinations of such actions (detailed explanation follows below).
 
 
 
@@ -198,7 +196,7 @@ The changes I made to the original demo consist of:
 
 
 
-##### The Web Audio API use
+#### The Web Audio API use
 
 We make use of the [Analyser Node](https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode) of the Web Audio API context. We get the node from the *Wavesurfer* object of the Player:
 
@@ -274,9 +272,11 @@ tdd 		= new Uint8Array(analyser.fftSize);
 
 ### The Spiral Spheres
 
-The two spheres are added to the poles of the *Main Sphere* and are connected to each other with the *Wave Lines*. The spheres have an alpha texture applied from an alpha map image (loaded at the very beginning). 
+The two spheres are added to the poles of the *Main Sphere* and are connected to each other with the *Wave Lines*. The spheres have an alpha texture applied from an alpha map image (loaded at the very beginning).
 
-`var alphaTexture= new THREE.TextureLoader().load(alpha_texture_path)`.
+```javascript
+var alphaTexture = new THREE.TextureLoader().load(alpha_texture_path);
+```
 
 The material, as we mentioned, is a `THREE.MeshStandardMaterial()` with double side rendering enabled and transparent properties set to true. The texture is applied as follows to get the desired effect:
 
@@ -356,9 +356,7 @@ The  `smoothingTimeConstant`  parameter of the  `analyser`  object  can be updat
 
 
 
-.	.	.
-
-
+---
 
 ## Demo
 
